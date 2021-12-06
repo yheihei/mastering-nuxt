@@ -1,8 +1,10 @@
 <template>
   <div>
     <div v-for="home in homes" :key="home.objectID" style="float:left; margin: 10px;">
-      <!-- nuxt-linkはその先のURLをプリフェッチしてくれる。ただし、一覧とかでこれをやるとトラフィックがすごいのでno-prefetchしておくと良い -->
-      <nuxt-link :to="`/home/${home.objectID}`" no-prefetch><home-card :home="home"></home-card></nuxt-link>
+      <!-- nuxt-linkはその先のURLをプリフェッチしてくれる。ただし、一覧とかでこれをやるとトラフィックがすごいのでno-prefetchするか、nuxt.config.jsでデフォルトfalseにする -->
+      <nuxt-link :to="`/home/${home.objectID}`">
+        <home-card :home="home"></home-card>
+      </nuxt-link>
     </div>
   </div>
 </template>
